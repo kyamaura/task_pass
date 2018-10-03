@@ -1,0 +1,23 @@
+<div class="main tasks-new">
+  <div class="container">
+    <h1 class="form-heading">気軽に頼みごとをしよう！</h1>
+    <%= form_tag("/tasks/create") do %>
+      <div class="form">
+        <div class="form-body">
+          <% @task.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+          <p>依頼内容</p>
+          <textarea name="content"><%= @task.content %></textarea>
+          <p>報酬</p>
+          <input name="compensation", value = "<%= @task.compensation %>">
+          <p>受託受付期間</p>
+          <input name="viewing_period", value = "<%= @task.viewing_period %>">
+          <input type="submit" value="依頼">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

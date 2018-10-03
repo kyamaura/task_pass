@@ -1,0 +1,26 @@
+<div class="main assistants-new">
+  <div class="container">
+    <div class="form-heading">新規ユーザー登録</div>
+    <div class="form assistants-form">
+      <div class="form-body">
+
+        <% @assistant.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+
+        <%= form_tag("/assistants/create") do %>
+        <p>ユーザー名</p>
+        <input name = "name", value = "<%= @assistant.name %>">
+
+        <p>メールアドレス</p>
+        <input name = "email", value = "<%= @assistant.email %>">
+        <p>パスワード</p>
+        <input type="password" name="password" value="<%= @assistant.password %>">
+        <input type="submit" value="新規登録">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
